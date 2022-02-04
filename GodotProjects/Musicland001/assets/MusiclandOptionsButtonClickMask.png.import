@@ -1,0 +1,15 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+path="res://.import/MusiclandOptionsButtonClickMask.png-c05b95c8afa31e075157642cb0807b94.res"
+
+[deps]
+
+source_file="res://assets/MusiclandOptionsButtonClickMask.png"
+dest_files=[ "res://.import/MusiclandOptionsButtonClickMask.png-c05b95c8afa31e075157642cb0807b94.res" ]
+
+[params]
+
+create_from=0
+threshold=0.5

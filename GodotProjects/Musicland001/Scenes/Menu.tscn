@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=1]
+[ext_resource path="res://assets/MusiclandStartButtonClickMask.png" type="BitMap" id=2]
+[ext_resource path="res://assets/MusiclandStartButtonHover.png" type="Texture" id=3]
+[ext_resource path="res://assets/MusiclandStartButton.png" type="Texture" id=4]
+[ext_resource path="res://assets/MusiclandOptionsButtonClickMask.png" type="BitMap" id=5]
+[ext_resource path="res://assets/MusiclandOptionsButtonHover.png" type="Texture" id=6]
+[ext_resource path="res://assets/MusiclandTitle.png" type="Texture" id=7]
+[ext_resource path="res://assets/MusiclandOptionsButton.png" type="Texture" id=8]
+[ext_resource path="res://assets/MusiclandGame2DBackground.png" type="Texture" id=9]
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512.396, 299.702 )
+texture = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 153.71
+margin_top = -99.5338
+margin_right = 1177.71
+margin_bottom = 500.466
+rect_scale = Vector2( 0.69141, 0.69141 )
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartButton" type="TextureButton" parent="."]
+margin_left = 368.545
+margin_top = 176.57
+margin_right = 1392.55
+margin_bottom = 776.57
+rect_scale = Vector2( 0.27915, 0.27915 )
+texture_normal = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_click_mask = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+margin_left = 329.457
+margin_top = 314.06
+margin_right = 1353.46
+margin_bottom = 914.06
+rect_scale = Vector2( 0.35752, 0.35752 )
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 6 )
+texture_click_mask = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]

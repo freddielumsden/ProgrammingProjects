@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Grass.gd" type="Script" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 8, 8 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0, 0.392157, 0, 1 )
+
+[node name="Main" type="Spatial"]
+
+[node name="Ground" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="Grass" type="Spatial" parent="."]
+script = ExtResource( 1 )
+game_count = 600000
+blade_height = Vector2( 0.08, 0.06 )
+thread_count = 8
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.707107, -0.183013, 0.683013, 0, 0.965926, 0.258819, -0.707107, -0.183013, 0.683013, 3, 0.5, 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.433013, -0.5, 0.75, 0.0173376, 0.836516, 0.547668, -0.901221, -0.224144, 0.370891, 0, 1, 0 )
+shadow_enabled = true
