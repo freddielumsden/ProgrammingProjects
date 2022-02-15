@@ -1,11 +1,9 @@
-#include <vector>
+#include <iostream>
 
-using namespace std; 
+using namespace std;
 
-int count_sheep(vector<bool> arr) 
+int main()
 {
-  asd;lkja;sldk;laskd
+    cout << "Hello, world!" << endl;
+    return 0;
 }
-
-
-
