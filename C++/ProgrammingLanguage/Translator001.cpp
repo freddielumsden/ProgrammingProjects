@@ -1,47 +1,21 @@
 #include <iostream>
-#include <stdlib.h>
 #include <cstring>
+#include <vector>
+
 using namespace std;
-
-string getLine()
-{
-    cout << ">>> ";
-    string line;
-    cin >> line;
-    return line;
-}
-string determineLineMotive(string line)
-{
-    int len = strlen(line);
-    for (int i = 0; i < len; i++)
-    {
-
-    }
-    return "";
-}
-class Variable 
-{
-    public:
-        string type;
-        string identifier;
-        string value;
+class Token {
+	public:
+		Car(string _id, string _value, string _type) {
+			string id = _id;
+			string value = _value;
+			string type = _type;
+		}
 };
-
 int main()
 {
-    cout << "Programming Language Interpreter\n";
-    string line;
-    while (true)
-    {
-        line = getLine();
-        if (line == "exit")
-        {
-            break;
-        } else
-        {
-            string motive = determineLineMotive(line);
-        }
-    }
+	string line = "print 10";
+	vector<string> line_split;
+	for (i of )
 
-    return 0;
+	return 0;
 }

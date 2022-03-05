@@ -1,0 +1,34 @@
+#board button {
+	font-size: 120px;
+	width: 30%;
+	padding: 4.3%;
+	text-align: center;
+	color: black;
+	background-color: black;
+	border: 0px black;
+	outline: none;
+}
+#win_message {
+	font: arial;
+	position:absolute;
+	font-size: 75px;
+	text-align: center;
+	left: 43.5%;
+	top:-7%;
+	color: white;
+}
+#points {
+	font-size: 75px;
+	text-align: center;
+	color: white;
+}
+#x_points {
+	position: absolute;
+	left: 1%;
+	top: -7.5%;
+}
+#o_points {
+	position: absolute;
+	left: 1%;
+	top: 0%;
+}

@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build and run go command",
+			"type": "shell",
+			"command": "go build ${fileDirname}\\${fileBasenameNoExtension}.go;./${fileBasenameNoExtension}",
+			"group": "build"
+		}
+	]
+}

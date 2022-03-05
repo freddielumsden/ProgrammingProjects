@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Haskell Command",
+			"type": "shell",
+			"command": "ghc ${fileDirname}\\${fileBasenameNoExtension}.hs;./${fileBasenameNoExtension}.exe",
+			"group": "build"
+		}
+	]
+}
