@@ -21,18 +21,17 @@ body {
 	font-size: x-large;
 }
 
-.icons {
-	width: 3%;
+#Github-icon {
+	width: auto;
 	padding-top: 100%;
-}
-
-#github {	
 	left: 10px;
 	bottom: 10px;
 	position: absolute;
 }
 
-#upwork {
+#Upwork-icon {
+	width: auto;
+	padding-top: 100%;
 	left: 80px;
 	bottom: 10px;
 	position: absolute;
