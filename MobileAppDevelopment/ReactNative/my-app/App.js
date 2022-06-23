@@ -1,6 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ImageBackground, Button , TouchableHighlight} from "react-native";
+import { StyleSheet, Text, View, ImageBackground, Button , Pressable} from "react-native";
 
 class App extends React.Component {
 	constructor(props) {
@@ -15,7 +15,7 @@ class App extends React.Component {
             prestigeLevel: 0,
 		};
         this.workers = [];
-		this.screen = "screen2"
+		this.screen = "screen1"
 	}
 	updateClicks = () => {
 		this.setState({ counter: this.state.counter + 1 });
@@ -33,9 +33,9 @@ class App extends React.Component {
 		}
 	};
 	buyWorker = () => {
-		if (this.state.noClicks >= 1000) {
+		if (this.state.noClicks >= this.state.workerUpgradeCost) {
 			this.setState({
-				noClicks: Math.round(this.state.noClicks - 1000),
+				noClicks: Math.round(this.state.noClicks - this.state.workerUpgradeCost),
 			});
 			this.workers.push(setInterval(() => {
 				this.setState({
@@ -90,24 +90,32 @@ class App extends React.Component {
 						<Text numberOfLines={10} style={styles.noClicksText}>
 							{this.state.noClicks.toLocaleString()}
 						</Text>
-							<StatusBar style="auto" />
-							<Button onPress={this.updateClicks} title="Tap Me" />
-							<Button
-								onPress={this.buyUpgrade}
-								title={"Buy Ugrade (Increment x 2) Cost: " + this.state.upgradeCost}
-							/>
-						<Button
-							onPress={this.buyWorker}
-							title={"Buy Worker (" + this.state.workerIncrement + "/s) Cost: 1000"}
-						/>
-						<Button
-							onPress={this.buyWorkerUpgrade}
-							title={"Buy Worker Upgrade (Worker Increment x 2 - only applies to following workers bought) Cost: " + this.state.workerUpgradeCost.toLocaleString()}
-						/>
-						<Button
-							onPress={this.prestige}
-							title={"Prestige (Reset Progress in return for better upgrades!) Cost: " + ((this.state.prestigeLevel+1)*10) ** 4}
-						/>
+						<StatusBar style="auto" />
+						<Pressable onPress={this.updateClicks} style={styles.button}>
+							<Text style={styles.text}>
+								Tap Me
+							</Text>
+						</Pressable>
+						<Pressable
+							style={styles.button}
+							onPress={this.buyUpgrade}>
+								<Text style={styles.text}>{"Buy Ugrade (Increment x 2) Cost: " + this.state.upgradeCost.toLocaleString()}</Text>
+						</Pressable>
+						<Pressable
+							style={styles.button}
+							onPress={this.buyWorker}>
+								<Text style={styles.text}>{"Buy Worker (Increment x " + this.state.workerIncrement + ") Cost: " + this.state.workerUpgradeCost.toLocaleString()}</Text>
+						</Pressable>
+						<Pressable
+							style={styles.button}
+							onPress={this.buyWorkerUpgrade}>
+								<Text style={styles.text}>{"Buy Worker Upgrade (Increment x " + this.state.workerIncrement + ") Cost: " + this.state.workerUpgradeCost.toLocaleString()}</Text>
+							</Pressable>
+						<Pressable
+							style={styles.button}
+							onPress={this.prestige}>
+								<Text style={styles.text}>{"Prestige (Reset Progress in return for better upgrades!) Cost: " + ((this.state.prestigeLevel+1)*10) ** 4}</Text>
+							</Pressable>
 					</div>
 					)
 					}
@@ -136,15 +144,31 @@ const styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	noClicksText: {
-		color: "#00e7f2",
+		color: "#009bf9",
 		textAlign: "center",
 		fontSize: 50,
-		
-	},
-	statsText: {
-		flex: 1,
 		fontWeight: "bold",
-		color: "#00e7f2",
+	},
+	button: {
+		flex:1,
+        flexDirection:'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+		borderRadius: 10,
+		borderWidth:1,
+		borderColor:'#009bf9',
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 25,
+    elevation: 3,
+    backgroundColor: 'black',
+	},
+	text: {
+		fontSize: 16,
+    	lineHeight: 21,
+    	fontWeight: 'bold',
+    	letterSpacing: 0.25,
+    	color: 'white',
 	},
 	backgroundImage: {
 		flex: 1,
