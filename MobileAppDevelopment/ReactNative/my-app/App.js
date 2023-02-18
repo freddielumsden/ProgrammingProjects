@@ -104,12 +104,12 @@ class App extends React.Component {
 						<Pressable
 							style={styles.button}
 							onPress={this.buyWorker}>
-								<Text style={styles.text}>{"Buy Worker (Increment x " + this.state.workerIncrement + ") Cost: " + this.state.workerUpgradeCost.toLocaleString()}</Text>
+								<Text style={styles.text}>{"Buy Worker (Increment x " + this.state.workerIncrement + ") Cost: " + Math.round(this.state.workerUpgradeCost).toLocaleString()}</Text>
 						</Pressable>
 						<Pressable
 							style={styles.button}
 							onPress={this.buyWorkerUpgrade}>
-								<Text style={styles.text}>{"Buy Worker Upgrade (Increment x " + this.state.workerIncrement + ") Cost: " + this.state.workerUpgradeCost.toLocaleString()}</Text>
+								<Text style={styles.text}>{"Buy Worker Upgrade (Increment x " + this.state.workerIncrement + ") Cost: " + Math.round(this.state.workerUpgradeCost).toLocaleString()}</Text>
 							</Pressable>
 						<Pressable
 							style={styles.button}

@@ -1,0 +1,67 @@
+<div id="expression">
+	<div class="font-big">
+		<a href="https://jisho.org/search/{{front}}">{{edit:front}}</a>
+		<!-- No link replace: {{edit:front}} -->
+		<div style="line-height: 15%">
+			<br />
+		</div>
+		<div id="hint"><div class="font-smaller">{{edit:Hint}}</div></div>
+	</div>
+</div>
+
+<div id="hintSentence" class="font-small">
+	{{#Sentence}}
+	<br /><br />
+	<div class="sentence">
+		<div class="example_jp">
+			49,50/195。どうしてイルカじゃないと分かった．．．！！
+		</div>
+	</div>
+	{{/Sentence}}
+</div>
+
+<script>
+	(function () {
+		// prevent loading front js on back side of card
+		if (document.getElementById("answer")) {
+			return;
+		}
+		const expression = 'じゃ無い';
+		const furiganaPlain = 'じゃ 無[な]い';
+
+		const kanji = furiganaPlain.slice(0, furiganaPlain.indexOf("[")).match(/[\u4e00-\u9faf]/g);
+		const kanjiFurigana = furiganaPlain.slice(
+			furiganaPlain.indexOf("[") + 1,
+			furiganaPlain.indexOf("]")
+		);
+
+		let hintSentence = document.getElementsByClassName("example_jp")[0];
+
+		console.log(hintSentence);
+
+		// Switches furigana to kanji
+		let fixedSentence = hintSentence.innerHTML.replace(kanjiFurigana, kanji);
+		// Highlights expression
+		fixedSentence = fixedSentence.replace(
+			expression,
+			"<strong>" + expression + "</strong>"
+		);
+		hintSentence.innerHTML = "\n\t\t\t" + fixedSentence + "\n\t\t\t";
+
+		hintSentence.style.display = "block";
+	})();
+
+	// takes an expression and shortens it until it's in the sentence
+	function shorten(expression, sentence, minLength) {
+		while (expression.length > minLength && !sentence.match(expression)) {
+			expression = expression.substr(0, expression.length - 1);
+		}
+		return expression;
+	}
+
+	function hiraganaToKatakana(hiragana) {
+		return hiragana.replace(/[\u3041-\u3096]/g, function (c) {
+			return String.fromCharCode(c.charCodeAt(0) + 0x60);
+		});
+	}
+</script>
